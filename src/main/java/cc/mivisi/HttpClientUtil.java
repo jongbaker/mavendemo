@@ -37,8 +37,8 @@ import com.alibaba.fastjson.JSON;
  * Function: <br/>
  * Date: 2018年8月14日 上午12:45:20 <br/>
  */
-public class HttpUtil {
-    private static Logger logger = Logger.getLogger(HttpUtil.class);
+public class HttpClientUtil {
+    private static Logger logger = Logger.getLogger(HttpClientUtil.class);
 
     /**
      * get请求
@@ -138,7 +138,7 @@ public class HttpUtil {
      * @param params
      * @return
      */
-    public static String doPost(String url, String params) throws Exception {
+    public static String doPost(String url, String params) throws  Exception {
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(url);// 创建httpPost

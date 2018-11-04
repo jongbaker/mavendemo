@@ -24,11 +24,12 @@ public class JDBCDemo {
             // 通过驱动管理类获取数据库链接
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8", "root", "123");
             // 定义sql语句 ?表示占位符
-            String sql = "select * from user where username = ?";
+            String sql = "select * from ? where username = ?";
             // 获取预处理statement
             preparedStatement = connection.prepareStatement(sql);
             // 设置参数，第一个参数为sql语句中参数的序号（从1开始），第二个参数为设置的参数值
-            preparedStatement.setString(1, "王五");
+            preparedStatement.setString(1, "user");//错误用法，不能预编译表名
+            preparedStatement.setString(2, "王五");
             // 向数据库发出sql执行查询，查询出结果集
             resultSet = preparedStatement.executeQuery();
             // 遍历查询结果集
